@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.ui.profile.SeeProfileFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_200">
+
+        <TextView
+            android:id="@+id/tv_edit_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/psemibold"
+            android:gravity="center"
+            android:text="@string/edit_profile"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_edit_profile"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_edit_profile" />
+
+        <FrameLayout
+            android:id="@+id/frame_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_edit_profile">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img_profile"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:contentDescription="@string/photo_profile"
+                android:src="@drawable/ic_baseline_account_circle" />
+
+            <ImageButton
+                android:id="@+id/btn_add_photo"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:padding="10dp"
+                android:layout_gravity="end|bottom"
+                android:src="@drawable/ic_navigation_detection"
+                android:background="@drawable/button"
+                android:layout_marginBottom="5dp"
+                android:layout_marginEnd="7dp"
+                android:contentDescription="@string/add_photo"/>
+        </FrameLayout>
+
+
+        <com.ardianhilmip.catcares.view.custom.InputName
+            android:id="@+id/inputName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            android:padding="15dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/frame_profile"/>
+
+        <com.ardianhilmip.catcares.view.custom.InputNoHp
+            android:id="@+id/inputNoHp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            android:padding="15dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputName"/>
+
+        <com.ardianhilmip.catcares.view.custom.InputAddress
+            android:id="@+id/inputAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            android:padding="15dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputNoHp"/>
+
+        <com.ardianhilmip.catcares.view.custom.InputEmail
+            android:id="@+id/inputEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            android:padding="15dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputAddress"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pmedium"
+            android:textSize="14sp"
+            android:padding="10dp"
+            app:cornerRadius="5dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/update_profil"
+            android:backgroundTint="@color/blue_500"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputEmail"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

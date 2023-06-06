@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.ui.profile.ProfileFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_profile"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="20dp"
+            android:contentDescription="@string/photo_profile"
+            android:src="@drawable/ic_baseline_account_circle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/img_profile"
+            app:layout_constraintStart_toEndOf="@+id/img_profile"
+            app:layout_constraintTop_toTopOf="@+id/img_profile">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/psemibold"
+                android:text="@string/name"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_lihat_profil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/pregular"
+                android:text="@string/edit_profile"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_cat_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="18dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/blue_500"
+            android:drawableLeft="@drawable/ic_data_cat"
+            android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+            android:drawableTint="@color/white"
+            android:fontFamily="@font/psemibold"
+            android:padding="12dp"
+            android:text="@string/cat_data"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            app:cornerRadius="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_profile" />
+
+        <Button
+            android:id="@+id/btn_location_doctor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="18dp"
+            android:backgroundTint="@color/blue_500"
+            android:drawableLeft="@drawable/ic_location"
+            android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+            android:drawableTint="@color/white"
+            android:fontFamily="@font/psemibold"
+            android:padding="12dp"
+            android:layout_marginTop="2dp"
+            android:text="@string/location_doctor"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            app:cornerRadius="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_cat_data"/>
+
+        <Button
+            android:id="@+id/btn_theme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="18dp"
+            android:backgroundTint="@color/blue_500"
+            android:drawableLeft="@drawable/ic_theme"
+            android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+            android:drawableTint="@color/white"
+            android:fontFamily="@font/psemibold"
+            android:padding="12dp"
+            android:layout_marginTop="2dp"
+            android:text="@string/theme_change"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            app:cornerRadius="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_location_doctor" />
+
+        <Button
+            android:id="@+id/btn_language"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="18dp"
+            android:backgroundTint="@color/blue_500"
+            android:drawableLeft="@drawable/ic_language"
+            android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+            android:drawableTint="@color/white"
+            android:fontFamily="@font/psemibold"
+            android:padding="12dp"
+            android:layout_marginTop="2dp"
+            android:text="@string/language_change"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            app:cornerRadius="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_theme" />
+
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="18dp"
+            android:backgroundTint="@color/yellow_700"
+            android:drawableLeft="@drawable/ic_logout"
+            android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+            android:drawableTint="@color/black"
+            android:fontFamily="@font/psemibold"
+            android:padding="12dp"
+            android:layout_marginTop="2dp"
+            android:text="@string/logout"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:cornerRadius="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_language" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
