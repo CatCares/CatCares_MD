@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "668987714058",
+    "project_id": "catcares",
+    "storage_bucket": "catcares.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668987714058:android:b53e73648879aab0d50df3",
+        "android_client_info": {
+          "package_name": "com.ardianhilmip.catcares"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "668987714058-mat0taffdu7m0s02vg59nesegpgedekg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ardianhilmip.catcares",
+            "certificate_hash": "e77bd95dfd4c432e815fb24da477852103dac3b5"
+          }
+        },
+        {
+          "client_id": "668987714058-0f6q1i65drlogbtm52849rkp9rvqibds.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAefwVjp3QbWuFKyuJo-j6gQ0D9D-9gtGY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "668987714058-0f6q1i65drlogbtm52849rkp9rvqibds.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

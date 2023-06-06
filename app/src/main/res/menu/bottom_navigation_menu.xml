@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_navigation_home"
+        android:title="@string/title_home" />
+    <item
+        android:id="@+id/checkUpFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_navigation_checkup"
+        android:title="@string/title_check_up" />
+    <item
+        android:id="@+id/detectionFragment"
+        android:enabled="false"
+        android:title=""/>
+
+    <item
+        android:id="@+id/articleFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_navigation_article"
+        android:title="@string/title_article" />
+    <item
+        android:id="@+id/profileFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_navigation_profile"
+        android:title="@string/title_profile" />
+</menu>
