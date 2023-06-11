@@ -10,7 +10,7 @@ import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
 import com.ardianhilmip.catcares.R
 
-class InputName : AppCompatEditText {
+class InputLastName : AppCompatEditText {
 
     private lateinit var iconFormInput: Drawable
 
@@ -43,7 +43,7 @@ class InputName : AppCompatEditText {
                 showIconFormInput()
                 error = if (s.isNotEmpty()) {
                     if (s.length > 15) {
-                        context.getString(R.string.name_too_long)
+                        context.getString(R.string.last_name_long)
                     } else null
                 } else null
             }
@@ -77,7 +77,7 @@ class InputName : AppCompatEditText {
         context.apply {
             compoundDrawablePadding = 20
             setTextColor(ContextCompat.getColor(this, R.color.black))
-            hint = context.getString(R.string.input_name)
+            hint = context.getString(R.string.input_last_name)
             textSize = 15f
             setHintTextColor(ContextCompat.getColor(this, R.color.gray_800))
             background = getDrawable(R.drawable.form_input)

@@ -11,23 +11,24 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.ardianhilmip.catcares.R
+import com.ardianhilmip.catcares.data.UserPreference
 import com.ardianhilmip.catcares.databinding.FragmentSplashBinding
+import com.ardianhilmip.catcares.view.viewmodel.LoginViewModel
 import com.google.firebase.auth.FirebaseAuth
 
 class SplashFragment : Fragment() {
     private var _binding: FragmentSplashBinding? = null
     private val binding get() = _binding
-    private lateinit var auth: FirebaseAuth
+    private val pref: UserPreference by lazy {
+        UserPreference(requireContext())
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         _binding = FragmentSplashBinding.inflate(inflater, container, false)
 
-        auth = FirebaseAuth.getInstance()
-        val currentUser = auth.currentUser
-
         Handler(Looper.getMainLooper()).postDelayed({
-            if (currentUser != null) {
+            if (pref.isLoggedIn) {
                 findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToHomeFragment())
                 return@postDelayed
             } else {

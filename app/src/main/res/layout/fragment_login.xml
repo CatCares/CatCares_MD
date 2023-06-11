@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray_200"
     tools:context=".view.ui.auth.LoginFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,7 +30,6 @@
             android:layout_marginTop="25dp"
             android:fontFamily="@font/psemibold"
             android:text="@string/login_title"
-            android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/foto_login" />
@@ -43,9 +41,7 @@
             android:fontFamily="@font/plight"
             android:paddingHorizontal="18dp"
             android:text="@string/login_subtitle"
-            android:textColor="@color/black"
             android:textSize="15sp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title" />
 
@@ -57,7 +53,6 @@
             android:layout_marginTop="15dp"
             android:fontFamily="@font/psemibold"
             android:text="@string/email"
-            android:textColor="@color/black"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/subtitle" />
@@ -82,7 +77,6 @@
             android:layout_marginTop="12dp"
             android:fontFamily="@font/psemibold"
             android:text="@string/password"
-            android:textColor="@color/black"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
@@ -108,7 +102,6 @@
             android:layout_marginEnd="18dp"
             android:fontFamily="@font/pmedium"
             android:text="@string/forgot_password"
-            android:textColor="@color/black"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/inputPassword" />
@@ -151,7 +144,6 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/pregular"
                     android:text="@string/dont_have_account"
-                    android:textColor="@color/black"
                     android:textSize="13sp" />
 
                 <TextView
@@ -161,7 +153,6 @@
                     android:layout_marginStart="5dp"
                     android:fontFamily="@font/psemibold"
                     android:text="@string/register"
-                    android:textColor="@color/black"
                     android:textSize="13sp" />
             </TableRow>
 
@@ -169,9 +160,10 @@
 
         <ProgressBar
             android:id="@+id/progressBar"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:visibility="invisible"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
