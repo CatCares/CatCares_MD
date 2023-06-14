@@ -1,4 +1,4 @@
-package com.ardianhilmip.catcares.view.viewmodel
+package com.ardianhilmip.catcares.view.viewmodel.auth
 
 import android.util.Log
 import androidx.lifecycle.LiveData

@@ -8,15 +8,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.ardianhilmip.catcares.R
 import com.ardianhilmip.catcares.data.UserPreference
 import com.ardianhilmip.catcares.data.remote.response.auth.User
 import com.ardianhilmip.catcares.databinding.FragmentLoginBinding
-import com.ardianhilmip.catcares.view.viewmodel.LoginViewModel
-import kotlin.math.log
+import com.ardianhilmip.catcares.view.viewmodel.auth.LoginViewModel
 
 class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null

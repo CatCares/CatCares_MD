@@ -114,4 +114,6 @@
     <string name="date">Senin, 28 Mei 2023</string>
     <string name="tv_doctor">Dokter Hewan Terdekat</string>
     <string name="tv_article">Artikel Terkini</string>
+    <string name="not_permission">Tidak memiliki izin</string>
+    <string name="update_success">User telah diupdate</string>
 </resources>

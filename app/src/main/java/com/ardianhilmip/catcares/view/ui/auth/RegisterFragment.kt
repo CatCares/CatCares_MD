@@ -7,17 +7,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.navigateUp
 import com.ardianhilmip.catcares.R
 import com.ardianhilmip.catcares.databinding.FragmentRegisterBinding
-import com.ardianhilmip.catcares.view.viewmodel.RegisterViewModel
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
-
+import com.ardianhilmip.catcares.view.viewmodel.auth.RegisterViewModel
 
 class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null

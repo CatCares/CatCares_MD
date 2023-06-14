@@ -10,11 +10,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.ardianhilmip.catcares.R
 import com.ardianhilmip.catcares.data.UserPreference
 import com.ardianhilmip.catcares.databinding.FragmentSplashBinding
-import com.ardianhilmip.catcares.view.viewmodel.LoginViewModel
-import com.google.firebase.auth.FirebaseAuth
 
 class SplashFragment : Fragment() {
     private var _binding: FragmentSplashBinding? = null
