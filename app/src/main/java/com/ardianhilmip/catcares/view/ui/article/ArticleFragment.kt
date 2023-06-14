@@ -5,17 +5,24 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ardianhilmip.catcares.data.UserPreference
+import com.ardianhilmip.catcares.data.factory.ViewModelFactory
 import com.ardianhilmip.catcares.data.local.Article.Article
 import com.ardianhilmip.catcares.data.local.Article.FakeArticleDataSource
 import com.ardianhilmip.catcares.databinding.FragmentArticleBinding
 import com.ardianhilmip.catcares.view.adapter.BannerArticleAdapter
-import com.ardianhilmip.catcares.view.adapter.ListArticleAdapter
+import com.ardianhilmip.catcares.view.adapter.ArticleListAdapter
+import com.ardianhilmip.catcares.view.adapter.LoadingStateAdapter
+import com.ardianhilmip.catcares.view.viewmodel.article.ArticleViewModel
 
 class ArticleFragment : Fragment() {
     private var _binding: FragmentArticleBinding? = null
     private val binding get() = _binding
-    private val list = ArrayList<Article>()
+    private val pref: UserPreference by lazy {
+        UserPreference(requireContext())
+    }
     private val listBanner = ArrayList<Article>()
 
     override fun onCreateView(
@@ -28,14 +35,11 @@ class ArticleFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        list.addAll(getArticle())
+        getArticle()
         listBanner.addAll(getBanner())
         binding?.apply {
             listArticle.apply {
                 layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-                setHasFixedSize(true)
-                val articleAdapter = ListArticleAdapter(list)
-                adapter = articleAdapter
             }
             bannerArticle.apply {
                 layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
@@ -46,18 +50,21 @@ class ArticleFragment : Fragment() {
         }
     }
 
-    private fun getArticle(): ArrayList<Article> {
-        val listArticle = ArrayList<Article>()
-        FakeArticleDataSource.dummyArticle.forEach {
-            val article = Article(
-                it.id,
-                it.title,
-                it.image,
-                it.createAt,
-            )
-            listArticle.add(article)
+    private fun getArticle() {
+        val articleViewModel: ArticleViewModel by viewModels() {
+            ViewModelFactory (requireContext(), "${pref.getToken().token}")
         }
-        return listArticle
+
+        val adapter = ArticleListAdapter()
+        binding?.listArticle?.adapter = adapter.withLoadStateFooter(
+            footer = LoadingStateAdapter() {
+                adapter.retry()
+            }
+        )
+
+        articleViewModel.article.observe(requireActivity()) {
+            adapter.submitData(lifecycle, it)
+        }
     }
 
     private fun getBanner(): ArrayList<Article> {

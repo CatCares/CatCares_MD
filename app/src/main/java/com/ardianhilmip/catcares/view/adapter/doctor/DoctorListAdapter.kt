@@ -1,21 +1,13 @@
 package com.ardianhilmip.catcares.view.adapter.doctor
 
-import android.app.Activity
-import android.content.Intent
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityOptionsCompat
-import androidx.core.util.Pair
-import androidx.fragment.app.Fragment
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.ardianhilmip.catcares.R
 import com.ardianhilmip.catcares.data.local.entity.DataDoctor
 import com.ardianhilmip.catcares.databinding.ItemDoctorBinding
-import com.ardianhilmip.catcares.view.ui.doctor.DetailDoctorFragment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 
@@ -55,18 +47,6 @@ class DoctorListAdapter :
 
     }
 
-    companion object {
-        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<DataDoctor>() {
-            override fun areItemsTheSame(oldItem: DataDoctor, newItem: DataDoctor): Boolean {
-                return oldItem.dokterId == newItem.dokterId
-            }
-
-            override fun areContentsTheSame(oldItem: DataDoctor, newItem: DataDoctor): Boolean {
-                return oldItem == newItem
-            }
-        }
-    }
-
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val data = getItem(position)
         if (data != null) {
@@ -77,5 +57,17 @@ class DoctorListAdapter :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding = ItemDoctorBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MyViewHolder(binding)
+    }
+
+    companion object {
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<DataDoctor>() {
+            override fun areItemsTheSame(oldItem: DataDoctor, newItem: DataDoctor): Boolean {
+                return oldItem.dokterId == newItem.dokterId
+            }
+
+            override fun areContentsTheSame(oldItem: DataDoctor, newItem: DataDoctor): Boolean {
+                return oldItem == newItem
+            }
+        }
     }
 }

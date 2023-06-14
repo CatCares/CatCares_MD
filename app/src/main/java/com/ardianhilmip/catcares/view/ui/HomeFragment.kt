@@ -10,14 +10,14 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ardianhilmip.catcares.data.UserPreference
-import com.ardianhilmip.catcares.data.local.Article.Article
-import com.ardianhilmip.catcares.data.local.Article.FakeArticleDataSource
 import com.ardianhilmip.catcares.databinding.FragmentHomeBinding
 import com.ardianhilmip.catcares.data.factory.ViewModelFactory
 import com.ardianhilmip.catcares.data.remote.api.ApiConfig
 import com.ardianhilmip.catcares.data.remote.response.auth.LoginResponse
-import com.ardianhilmip.catcares.view.adapter.ListArticleAdapter
+import com.ardianhilmip.catcares.view.adapter.ArticleListAdapter
+import com.ardianhilmip.catcares.view.adapter.LoadingStateAdapter
 import com.ardianhilmip.catcares.view.adapter.doctor.DoctorListAdapter
+import com.ardianhilmip.catcares.view.viewmodel.article.ArticleViewModel
 import com.ardianhilmip.catcares.view.viewmodel.doctor.DoctorViewModel
 import com.bumptech.glide.Glide
 import retrofit2.Call
@@ -30,7 +30,6 @@ class HomeFragment : Fragment() {
     private val pref: UserPreference by lazy {
         UserPreference(requireContext())
     }
-    private val listArticle = ArrayList<Article>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,7 +42,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getDoctor()
-        listArticle.addAll(getArticle())
+        getArticle()
         getName()
         binding?.apply {
             rvDoctor.apply {
@@ -51,9 +50,6 @@ class HomeFragment : Fragment() {
             }
             rvArticle.apply {
                 layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-                setHasFixedSize(true)
-                val articleAdapter = ListArticleAdapter(listArticle)
-                adapter = articleAdapter
             }
             btnLihatDoctor.setOnClickListener {
                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDoctorFragment2())
@@ -88,20 +84,21 @@ class HomeFragment : Fragment() {
         })
     }
 
-    private fun getArticle(): ArrayList<Article> {
-        val listArticle = ArrayList<Article>()
-        FakeArticleDataSource.dummyArticle.size.let {
-            for (i in 0 until 3) {
-                val article = Article(
-                    FakeArticleDataSource.dummyArticle[i].id,
-                    FakeArticleDataSource.dummyArticle[i].title,
-                    FakeArticleDataSource.dummyArticle[i].image,
-                    FakeArticleDataSource.dummyArticle[i].createAt,
-                )
-                listArticle.add(article)
-            }
+    private fun getArticle() {
+        val articleViewModel: ArticleViewModel by viewModels() {
+            ViewModelFactory (requireContext(), "${pref.getToken().token}")
         }
-        return listArticle
+
+        val adapter = ArticleListAdapter()
+        binding?.rvArticle?.adapter = adapter.withLoadStateFooter(
+            footer = LoadingStateAdapter() {
+                adapter.retry()
+            }
+        )
+
+        articleViewModel.article.observe(requireActivity()) {
+            adapter.submitData(lifecycle, it)
+        }
     }
 
     private fun getDoctor() {

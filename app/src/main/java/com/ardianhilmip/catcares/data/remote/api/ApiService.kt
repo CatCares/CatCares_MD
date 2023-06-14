@@ -1,6 +1,6 @@
 package com.ardianhilmip.catcares.data.remote.api
 
-import android.media.session.MediaSession.Token
+import com.ardianhilmip.catcares.data.remote.response.article.ArticleResponse
 import com.ardianhilmip.catcares.data.remote.response.auth.RegisterResponse
 import com.ardianhilmip.catcares.data.remote.response.auth.LoginResponse
 import com.ardianhilmip.catcares.data.remote.response.doctor.DoctorResponse
@@ -9,7 +9,6 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*
-import java.io.File
 
 interface ApiService {
 
@@ -57,4 +56,13 @@ interface ApiService {
         @Query("page") page: Int,
         @Query("size") size: Int
     ): DoctorResponse
+
+    //Get Article
+    @GET("/artikel")
+    suspend fun getListArticle(
+        @Header("Authorization") token_auth: String,
+        @Query("page") page: Int,
+        @Query("size") size: Int
+    ): ArticleResponse
+
 }
