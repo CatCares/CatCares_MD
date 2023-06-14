@@ -1,13 +1,13 @@
 package com.ardianhilmip.catcares.view.viewmodel
 
+import android.provider.ContactsContract.Data
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.ardianhilmip.catcares.data.remote.api.ApiConfig
-import com.ardianhilmip.catcares.data.remote.response.DataLogin
-import com.ardianhilmip.catcares.data.remote.response.LoginResponse
-import org.json.JSONObject
+import com.ardianhilmip.catcares.data.remote.response.auth.DataLogin
+import com.ardianhilmip.catcares.data.remote.response.auth.LoginResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

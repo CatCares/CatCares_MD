@@ -1,4 +1,4 @@
-package com.ardianhilmip.catcares.factory
+package com.ardianhilmip.catcares.data.factory
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

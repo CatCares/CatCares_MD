@@ -12,8 +12,8 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img_profile"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_marginStart="18dp"
             android:layout_marginTop="20dp"
             android:contentDescription="@string/photo_profile"
@@ -36,7 +36,7 @@
             app:layout_constraintTop_toTopOf="@+id/img_profile">
 
             <TextView
-                android:id="@+id/tv_halo"
+                android:id="@+id/tv_spesialis"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
@@ -53,8 +53,8 @@
                 android:textSize="20sp" />
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/notif"
+        <ImageButton
+            android:id="@+id/btn_notification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="18dp"
@@ -63,25 +63,154 @@
             android:src="@drawable/ic_home_notification"
             app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/linearLayout" />
+            app:layout_constraintTop_toTopOf="@+id/linearLayout"
+            tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
         <TextView
             android:id="@+id/tv_tambah_kucing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="14dp"
             android:fontFamily="@font/psemibold"
             android:text="@string/add_cat"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/img_profile" />
 
+        <LinearLayout
+            android:id="@+id/add_cat_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/bg_add_cat_layout"
+            android:orientation="vertical"
+            android:padding="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_tambah_kucing">
+
+            <ImageButton
+                android:id="@+id/btn_add_cat"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:background="@drawable/bg_add_cat"
+                android:contentDescription="@string/add_cat"
+                android:padding="10dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/ic_baseline_add_24" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/pmedium"
+                android:text="@string/add"
+                android:textColor="@color/gray_800"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_schedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/psemibold"
+            android:text="@string/upcoming_schedule"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_cat_layout" />
+
+        <TextView
+            android:id="@+id/btn_lihat_jadwal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/all_see"
+            android:textSize="10sp"
+            android:fontFamily="@font/pregular"
+            android:layout_marginEnd="18dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_schedule"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_schedule" />
+
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_cat"
+            android:id="@+id/rv_schedule"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:overScrollMode="never"
-            app:layout_constraintTop_toBottomOf="@+id/tv_tambah_kucing" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_schedule"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_doctor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/psemibold"
+            android:text="@string/tv_doctor"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_schedule" />
+
+        <TextView
+            android:id="@+id/btn_lihat_doctor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/all_see"
+            android:textSize="10sp"
+            android:fontFamily="@font/pregular"
+            android:layout_marginEnd="18dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_doctor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_doctor" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_doctor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            app:layout_constraintTop_toBottomOf="@+id/tv_doctor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_article"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/psemibold"
+            android:text="@string/tv_article"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_doctor" />
+
+        <TextView
+            android:id="@+id/btn_lihat_artcle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/all_see"
+            android:textSize="10sp"
+            android:fontFamily="@font/pregular"
+            android:layout_marginEnd="18dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_article"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_article" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_article"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            android:textAlignment="inherit"
+            app:layout_constraintTop_toBottomOf="@+id/tv_article"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingBottom="100dp"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

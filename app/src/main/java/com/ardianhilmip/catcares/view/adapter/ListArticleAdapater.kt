@@ -3,7 +3,7 @@ package com.ardianhilmip.catcares.view.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.ardianhilmip.catcares.data.local.Article
+import com.ardianhilmip.catcares.data.local.Article.Article
 import com.ardianhilmip.catcares.databinding.ItemArtikelVerticalBinding
 
 class ListArticleAdapter(private val listArticle: ArrayList<Article>) :

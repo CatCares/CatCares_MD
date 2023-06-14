@@ -1,4 +1,4 @@
-package com.ardianhilmip.catcares.data.remote.response
+package com.ardianhilmip.catcares.data.remote.response.auth
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
@@ -15,8 +15,7 @@ data class LoginResponse(
 ) : Parcelable
 
 @Parcelize
-data class DataLogin(
-
+data class DataLogin (
     @field:SerializedName("token")
     val token: String? = null
 ) : Parcelable

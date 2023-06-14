@@ -6,9 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ardianhilmip.catcares.R
-import com.ardianhilmip.catcares.data.local.Article
-import com.ardianhilmip.catcares.data.local.FakeArticleDataSource
+import com.ardianhilmip.catcares.data.local.Article.Article
+import com.ardianhilmip.catcares.data.local.Article.FakeArticleDataSource
 import com.ardianhilmip.catcares.databinding.FragmentArticleBinding
 import com.ardianhilmip.catcares.view.adapter.BannerArticleAdapter
 import com.ardianhilmip.catcares.view.adapter.ListArticleAdapter

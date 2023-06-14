@@ -1,7 +1,7 @@
 package com.ardianhilmip.catcares.data
 
 import android.content.Context
-import com.ardianhilmip.catcares.data.remote.response.DataLogin
+import com.ardianhilmip.catcares.data.remote.response.auth.DataLogin
 
 class UserPreference(context: Context) {
 

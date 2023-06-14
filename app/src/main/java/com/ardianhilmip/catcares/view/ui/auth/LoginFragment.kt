@@ -14,7 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.ardianhilmip.catcares.R
 import com.ardianhilmip.catcares.data.UserPreference
-import com.ardianhilmip.catcares.data.remote.response.DataLogin
+import com.ardianhilmip.catcares.data.remote.response.auth.DataLogin
 import com.ardianhilmip.catcares.databinding.FragmentLoginBinding
 import com.ardianhilmip.catcares.view.viewmodel.LoginViewModel
 import kotlin.math.log

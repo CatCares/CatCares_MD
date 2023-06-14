@@ -16,7 +16,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.ardianhilmip.catcares.R
 import com.ardianhilmip.catcares.data.SettingPreference
 import com.ardianhilmip.catcares.databinding.FragmentThemeBinding
-import com.ardianhilmip.catcares.factory.SettingModelFactory
+import com.ardianhilmip.catcares.data.factory.SettingModelFactory
 import com.ardianhilmip.catcares.view.viewmodel.SettingViewModel
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")

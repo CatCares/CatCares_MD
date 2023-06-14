@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.ardianhilmip.catcares.data.remote.api.ApiConfig
-import com.ardianhilmip.catcares.data.remote.response.RegisterResponse
+import com.ardianhilmip.catcares.data.remote.response.auth.RegisterResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

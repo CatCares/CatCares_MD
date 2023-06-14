@@ -1,4 +1,4 @@
-package com.ardianhilmip.catcares.data.local
+package com.ardianhilmip.catcares.data.local.Article
 
 import com.ardianhilmip.catcares.R
 
