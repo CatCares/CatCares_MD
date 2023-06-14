@@ -29,7 +29,7 @@ class UpdateViewModel: ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    fun update(token: String, firstName: RequestBody?, lastName: RequestBody?, address: RequestBody?, noHp: RequestBody?, foto: MultipartBody.Part) {
+    fun update(token: String, firstName: RequestBody?, lastName: RequestBody?, address: RequestBody?, noHp: RequestBody?, foto: MultipartBody.Part?) {
         _isLoading.value = true
         val client = ApiConfig.getApiService().updateUser("Bearer $token", firstName, lastName, address, noHp, foto)
         client.enqueue(object: Callback<ProfileResponse> {

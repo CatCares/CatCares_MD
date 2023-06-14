@@ -8,6 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
 import com.ardianhilmip.catcares.R
 import com.ardianhilmip.catcares.data.UserPreference
@@ -15,6 +17,7 @@ import com.ardianhilmip.catcares.data.remote.api.ApiConfig
 import com.ardianhilmip.catcares.data.remote.response.auth.LoginResponse
 import com.ardianhilmip.catcares.databinding.FragmentProfileBinding
 import com.ardianhilmip.catcares.view.ui.profile.theme.ThemeFragment
+import com.ardianhilmip.catcares.view.viewmodel.doctor.DoctorViewModel
 import com.bumptech.glide.Glide
 import retrofit2.Call
 import retrofit2.Callback

@@ -3,18 +3,12 @@ package com.ardianhilmip.catcares.data.remote.api
 import android.media.session.MediaSession.Token
 import com.ardianhilmip.catcares.data.remote.response.auth.RegisterResponse
 import com.ardianhilmip.catcares.data.remote.response.auth.LoginResponse
+import com.ardianhilmip.catcares.data.remote.response.doctor.DoctorResponse
 import com.ardianhilmip.catcares.data.remote.response.profile.ProfileResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.Multipart
-import retrofit2.http.POST
-import retrofit2.http.PUT
-import retrofit2.http.Part
+import retrofit2.http.*
 import java.io.File
 
 interface ApiService {
@@ -53,6 +47,14 @@ interface ApiService {
         @Part("lastName") lastName: RequestBody?,
         @Part("address") address: RequestBody?,
         @Part("noHP") noHP: RequestBody?,
-        @Part foto: MultipartBody.Part
+        @Part foto: MultipartBody.Part?
     ): Call<ProfileResponse>
+
+    //Get Doctor
+    @GET("dokter/list-dokter")
+    suspend fun getListDoctor(
+        @Header("Authorization") token_auth: String,
+        @Query("page") page: Int,
+        @Query("size") size: Int
+    ): DoctorResponse
 }

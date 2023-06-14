@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.ardianhilmip.catcares.data.UserPreference
 import com.ardianhilmip.catcares.databinding.FragmentSplashBinding
@@ -20,30 +21,33 @@ class SplashFragment : Fragment() {
         UserPreference(requireContext())
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         _binding = FragmentSplashBinding.inflate(inflater, container, false)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            if (pref.isLoggedIn) {
-                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToHomeFragment())
-                return@postDelayed
-            } else {
-                if (onBoardingFinish()) {
-                    findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
-                    return@postDelayed
+            lifecycleScope.launchWhenResumed {
+                if (pref.isLoggedIn) {
+                    findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToHomeFragment())
                 } else {
-                    findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToOnboardFragment())
-                    return@postDelayed
+                    if (onBoardingFinish()) {
+                        findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
+                    } else {
+                        findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToOnboardFragment())
+                    }
                 }
             }
+            return@postDelayed
         }, SPLASH_TIME_OUT)
 
         return binding?.root
     }
 
     private fun onBoardingFinish(): Boolean {
-        val prefs: SharedPreferences = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
+        val prefs: SharedPreferences =
+            requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
         return prefs.getBoolean("Finished", false)
     }
 

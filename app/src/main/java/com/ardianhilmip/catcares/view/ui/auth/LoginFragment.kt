@@ -42,7 +42,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun setupViewModel() {
-        loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+        loginViewModel = ViewModelProvider(requireActivity()).get(LoginViewModel::class.java)
 
         loginViewModel.error.observe(viewLifecycleOwner) { error ->
             loginViewModel.status.observe(viewLifecycleOwner) { status ->

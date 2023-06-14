@@ -40,6 +40,7 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import retrofit2.http.Multipart
 import java.io.File
 
 class SeeProfileFragment : Fragment() {
@@ -133,14 +134,14 @@ class SeeProfileFragment : Fragment() {
         if (getFile != null) {
             val file = reduceFileImage(getFile as File)
             binding?.apply {
-                val firstname = inputName.text.toString().trim()
+                val firstname = inputFirstName.text.toString().trim()
                 val lastname = inputLastName.text.toString().trim()
                 val phone = inputPhone.text.toString().trim()
                 val address = inputAddress.text.toString().trim()
                 when {
                     firstname.isEmpty() -> {
-                        inputName.error = getString(R.string.name_required)
-                        inputName.requestFocus()
+                        inputFirstName.error = getString(R.string.name_required)
+                        inputFirstName.requestFocus()
                     }
                     lastname.isEmpty() -> {
                         inputLastName.error = getString(R.string.name_required)
@@ -161,7 +162,7 @@ class SeeProfileFragment : Fragment() {
                         val phoneNumber = phone.toRequestBody("text/plain".toMediaType())
                         val addressUser = address.toRequestBody("text/plain".toMediaType())
                         val fileImage = file.asRequestBody("image/*".toMediaType())
-                        val foto = MultipartBody.Part.createFormData("foto", file.name, fileImage)
+                        val foto = MultipartBody.Part?.createFormData("foto", file.name, fileImage)
 
                         updateViewModel.update(
                             token_auth,
@@ -229,7 +230,7 @@ class SeeProfileFragment : Fragment() {
                 if (response.isSuccessful) {
                     val data = response.body()?.data
                     binding?.apply {
-                        inputName.setText(data?.firstName)
+                        inputFirstName .setText(data?.firstName)
                         inputLastName.setText(data?.lastName)
                         inputPhone.setText(data?.noHP)
                         inputAddress.setText(data?.alamat)

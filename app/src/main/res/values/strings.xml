@@ -116,4 +116,7 @@
     <string name="tv_article">Artikel Terkini</string>
     <string name="not_permission">Tidak memiliki izin</string>
     <string name="update_success">User telah diupdate</string>
+    <string name="retry">Coba lagi</string>
+    <string name="list_doctor">Daftar Dokter</string>
+    <string name="detail_doctor">Detail Dokter</string>
 </resources>

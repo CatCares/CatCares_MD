@@ -112,39 +112,6 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tv_schedule"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="14dp"
-            android:fontFamily="@font/psemibold"
-            android:text="@string/upcoming_schedule"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/add_cat_layout" />
-
-        <TextView
-            android:id="@+id/btn_lihat_jadwal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/all_see"
-            android:textSize="10sp"
-            android:fontFamily="@font/pregular"
-            android:layout_marginEnd="18dp"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_schedule"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tv_schedule" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_schedule"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:overScrollMode="never"
-            app:layout_constraintTop_toBottomOf="@+id/tv_schedule"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-        <TextView
             android:id="@+id/tv_doctor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -154,7 +121,7 @@
             android:text="@string/tv_doctor"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rv_schedule" />
+            app:layout_constraintTop_toBottomOf="@+id/add_cat_layout" />
 
         <TextView
             android:id="@+id/btn_lihat_doctor"
