@@ -3,7 +3,6 @@ package com.ardianhilmip.catcares.data.remote.api
 import android.media.session.MediaSession.Token
 import com.ardianhilmip.catcares.data.remote.response.auth.RegisterResponse
 import com.ardianhilmip.catcares.data.remote.response.auth.LoginResponse
-import com.ardianhilmip.catcares.data.remote.response.profile.ProfileResponse
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -36,5 +35,7 @@ interface ApiService {
     @GET("user/profile")
     fun getUser(
         @Header("Authorization") token_auth: String
-    ): Call<ProfileResponse>
+    ): Call<LoginResponse>
+
+    //
 }

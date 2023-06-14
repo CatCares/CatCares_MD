@@ -1,20 +1,20 @@
 package com.ardianhilmip.catcares.data
 
 import android.content.Context
-import com.ardianhilmip.catcares.data.remote.response.auth.DataLogin
+import com.ardianhilmip.catcares.data.remote.response.auth.User
 
 class UserPreference(context: Context) {
 
     private val preference = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
 
-    fun setToken(value: DataLogin) {
+    fun setToken(value: User) {
         val editor = preference.edit()
         editor.putString(TOKEN, value.token)
         editor.apply()
     }
 
-    fun getToken(): DataLogin {
-        return DataLogin(
+    fun getToken(): User {
+        return User(
             token = preference.getString(TOKEN, "") ?: ""
         )
     }

@@ -17,7 +17,7 @@ import androidx.navigation.fragment.findNavController
 import com.ardianhilmip.catcares.R
 import com.ardianhilmip.catcares.data.UserPreference
 import com.ardianhilmip.catcares.data.remote.api.ApiConfig
-import com.ardianhilmip.catcares.data.remote.response.profile.ProfileResponse
+import com.ardianhilmip.catcares.data.remote.response.auth.LoginResponse
 import com.ardianhilmip.catcares.databinding.FragmentSeeProfileBinding
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
@@ -61,11 +61,11 @@ class SeeProfileFragment : Fragment() {
         val token_auth = "Bearer ${pref.getToken().token}"
 
         val client = ApiConfig.getApiService().getUser(token_auth)
-        client.enqueue(object : Callback<ProfileResponse> {
+        client.enqueue(object : Callback<LoginResponse> {
 
             override fun onResponse(
-                call: Call<ProfileResponse>,
-                response: Response<ProfileResponse>
+                call: Call<LoginResponse>,
+                response: Response<LoginResponse>
             ) {
                 if (response.isSuccessful) {
                     val data = response.body()?.data
@@ -81,7 +81,7 @@ class SeeProfileFragment : Fragment() {
                 }
             }
 
-            override fun onFailure(call: Call<ProfileResponse>, t: Throwable) {
+            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 Log.e("SeeProfileFragment", "onFailure: ${t.message}")
             }
         })

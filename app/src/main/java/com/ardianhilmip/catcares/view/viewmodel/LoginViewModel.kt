@@ -1,21 +1,20 @@
 package com.ardianhilmip.catcares.view.viewmodel
 
-import android.provider.ContactsContract.Data
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.ardianhilmip.catcares.data.remote.api.ApiConfig
-import com.ardianhilmip.catcares.data.remote.response.auth.DataLogin
 import com.ardianhilmip.catcares.data.remote.response.auth.LoginResponse
+import com.ardianhilmip.catcares.data.remote.response.auth.User
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class LoginViewModel : ViewModel() {
     // Login Model
-    private val _loginData = MutableLiveData<DataLogin>()
-    val loginData: LiveData<DataLogin> = _loginData
+    private val _loginData = MutableLiveData<User>()
+    val loginData: LiveData<User> = _loginData
 
     // Error
     private val _error = MutableLiveData(true)

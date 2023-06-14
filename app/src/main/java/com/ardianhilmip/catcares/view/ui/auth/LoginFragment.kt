@@ -1,7 +1,6 @@
 package com.ardianhilmip.catcares.view.ui.auth
 
 import android.app.AlertDialog
-import android.net.Uri.Builder
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -14,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.ardianhilmip.catcares.R
 import com.ardianhilmip.catcares.data.UserPreference
-import com.ardianhilmip.catcares.data.remote.response.auth.DataLogin
+import com.ardianhilmip.catcares.data.remote.response.auth.User
 import com.ardianhilmip.catcares.databinding.FragmentLoginBinding
 import com.ardianhilmip.catcares.view.viewmodel.LoginViewModel
 import kotlin.math.log
@@ -54,7 +53,7 @@ class LoginFragment : Fragment() {
                         val token = dataLogin.token
 
                         UserPreference(requireContext()).apply {
-                            setToken(DataLogin(token))
+                            setToken(User(token))
                         }
                     }
                     val Builder = AlertDialog.Builder(requireContext())
