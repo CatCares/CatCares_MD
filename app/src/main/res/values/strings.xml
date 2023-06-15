@@ -50,7 +50,7 @@
     <string name="title_check_up">Check Up</string>
     <string name="title_article">Artikel</string>
     <string name="title_profile">Profil</string>
-    <string name="title_detection">Deteksi</string>
+    <string name="title_detection">Halaman Deteksi</string>
     <string name="cat_data">Data Kucing</string>
     <string name="location_doctor">Lokasi Dokter Terdekat</string>
     <string name="theme_change">Ubah Tema</string>
@@ -119,4 +119,5 @@
     <string name="retry">Coba lagi</string>
     <string name="list_doctor">Daftar Dokter</string>
     <string name="detail_doctor">Detail Dokter</string>
+    <string name="detection">Deteksi</string>
 </resources>

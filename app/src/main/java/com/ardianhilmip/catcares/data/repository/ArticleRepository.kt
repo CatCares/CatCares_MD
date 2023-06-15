@@ -6,13 +6,14 @@ import com.ardianhilmip.catcares.data.local.entity.ArticleDataItem
 import com.ardianhilmip.catcares.data.local.room.CatCaresDB
 import com.ardianhilmip.catcares.data.remote.api.ApiService
 import com.ardianhilmip.catcares.data.remote.mediator.article.ArticleRemoteMediator
+import com.ardianhilmip.catcares.data.remote.response.article.ArticleResponseItem
 
 class ArticleRepository(
     private val database: CatCaresDB,
     private val service: ApiService,
     private val token: String
 ) {
-    fun getArticle(): LiveData<PagingData<ArticleDataItem>> {
+    fun getArticle(): LiveData<PagingData<ArticleResponseItem>> {
         @OptIn(ExperimentalPagingApi::class)
         return Pager(
             config = PagingConfig(

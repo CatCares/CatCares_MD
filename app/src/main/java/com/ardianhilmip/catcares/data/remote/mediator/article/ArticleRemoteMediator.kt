@@ -5,17 +5,17 @@ import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
-import com.ardianhilmip.catcares.data.local.entity.ArticleDataItem
 import com.ardianhilmip.catcares.data.local.entity.RemoteKeys
 import com.ardianhilmip.catcares.data.local.room.CatCaresDB
 import com.ardianhilmip.catcares.data.remote.api.ApiService
+import com.ardianhilmip.catcares.data.remote.response.article.ArticleResponseItem
 
 @OptIn(ExperimentalPagingApi::class)
 class ArticleRemoteMediator(
     private val database: CatCaresDB,
     private val service: ApiService,
     private val token: String
-) : RemoteMediator<Int, ArticleDataItem>() {
+) : RemoteMediator<Int, ArticleResponseItem>() {
 
     override suspend fun initialize(): InitializeAction {
         return super.initialize()
@@ -23,7 +23,7 @@ class ArticleRemoteMediator(
 
     override suspend fun load(
         loadType: LoadType,
-        state: PagingState<Int, ArticleDataItem>
+        state: PagingState<Int, ArticleResponseItem>
     ): MediatorResult {
         val page = when (loadType) {
             LoadType.REFRESH -> {
@@ -80,7 +80,7 @@ class ArticleRemoteMediator(
         }
     }
 
-    private suspend fun getRemoteKeyClosestToCurrentPosition(state: PagingState<Int, ArticleDataItem>): RemoteKeys? {
+    private suspend fun getRemoteKeyClosestToCurrentPosition(state: PagingState<Int, ArticleResponseItem>): RemoteKeys? {
         return state.anchorPosition?.let { position ->
             state.closestItemToPosition(position)?.id?.let { repoId ->
                 database.remoteKeysDao().getRemoteKeysId(repoId)
@@ -88,13 +88,13 @@ class ArticleRemoteMediator(
         }
     }
 
-    private suspend fun getRemoteKeyForLastItem(state: PagingState<Int, ArticleDataItem>): RemoteKeys? {
+    private suspend fun getRemoteKeyForLastItem(state: PagingState<Int, ArticleResponseItem>): RemoteKeys? {
         return state.pages.lastOrNull() { it.data.isNotEmpty() }?.data?.lastOrNull()?.let { data ->
             database.remoteKeysDao().getRemoteKeysId(data.id)
         }
     }
 
-    private suspend fun getRemoteKeyForFirstItem(state: PagingState<Int, ArticleDataItem>): RemoteKeys? {
+    private suspend fun getRemoteKeyForFirstItem(state: PagingState<Int, ArticleResponseItem>): RemoteKeys? {
         return state.pages.firstOrNull() { it.data.isNotEmpty()}?.data?.firstOrNull()?.let { data ->
             database.remoteKeysDao().getRemoteKeysId(data.id)
         }

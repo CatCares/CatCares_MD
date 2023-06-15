@@ -58,7 +58,7 @@ interface ApiService {
     ): DoctorResponse
 
     //Get Article
-    @GET("/artikel")
+    @GET("artikel/list-artikel")
     suspend fun getListArticle(
         @Header("Authorization") token_auth: String,
         @Query("page") page: Int,

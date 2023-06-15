@@ -13,6 +13,9 @@ data class ArticleDataItem(
     @field:SerializedName("createdAt")
     val createdAt: String,
 
+    @field:SerializedName("foto")
+    val foto: String,
+
     @field:SerializedName("konten")
     val konten: String,
 
@@ -20,7 +23,7 @@ data class ArticleDataItem(
     val v: Int,
 
     @field:SerializedName("link")
-    val link: String,
+    val link: String? = null,
 
     @PrimaryKey
     @field:SerializedName("_id")

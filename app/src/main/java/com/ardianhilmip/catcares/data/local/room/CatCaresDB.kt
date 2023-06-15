@@ -4,13 +4,13 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.ardianhilmip.catcares.data.local.entity.ArticleDataItem
 import com.ardianhilmip.catcares.data.local.entity.DataDoctor
 import com.ardianhilmip.catcares.data.local.entity.RemoteKeys
+import com.ardianhilmip.catcares.data.remote.response.article.ArticleResponseItem
 
 @Database(
-    entities = [DataDoctor::class, ArticleDataItem::class, RemoteKeys::class],
-    version = 4,
+    entities = [ArticleResponseItem::class, DataDoctor::class, RemoteKeys::class],
+    version = 3,
     exportSchema = false
 )
 abstract class CatCaresDB: RoomDatabase() {

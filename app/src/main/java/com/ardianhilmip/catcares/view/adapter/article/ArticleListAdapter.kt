@@ -5,18 +5,22 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.ardianhilmip.catcares.data.local.entity.ArticleDataItem
+import com.ardianhilmip.catcares.data.remote.response.article.ArticleResponseItem
 import com.ardianhilmip.catcares.databinding.ItemArtikelVerticalBinding
+import com.bumptech.glide.Glide
 
 class ArticleListAdapter :
-    PagingDataAdapter<ArticleDataItem, ArticleListAdapter.ArticleViewHolder>(DIFF_CALLBACK) {
+    PagingDataAdapter<ArticleResponseItem, ArticleListAdapter.ArticleViewHolder>(DIFF_CALLBACK) {
 
     class ArticleViewHolder(private val binding: ItemArtikelVerticalBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(article: ArticleDataItem) {
+        fun bind(article: ArticleResponseItem) {
             binding.apply {
                 tvItemTitle.text = article.judul
                 tvItemDate.text = article.createdAt
+                Glide.with(itemView.context)
+                    .load(article.foto)
+                    .into(ivItemPhoto)
             }
         }
     }
@@ -34,12 +38,12 @@ class ArticleListAdapter :
     }
 
     companion object {
-        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<ArticleDataItem>() {
-            override fun areItemsTheSame(oldItem: ArticleDataItem, newItem: ArticleDataItem): Boolean {
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<ArticleResponseItem>() {
+            override fun areItemsTheSame(oldItem: ArticleResponseItem, newItem: ArticleResponseItem): Boolean {
                 return oldItem.id == newItem.id
             }
 
-            override fun areContentsTheSame(oldItem: ArticleDataItem, newItem:ArticleDataItem): Boolean {
+            override fun areContentsTheSame(oldItem: ArticleResponseItem, newItem:ArticleResponseItem): Boolean {
                 return oldItem == newItem
             }
         }

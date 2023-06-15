@@ -42,7 +42,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getDoctor()
-        getArticle()
+//        getArticle()
         getName()
         binding?.apply {
             rvDoctor.apply {
@@ -84,22 +84,22 @@ class HomeFragment : Fragment() {
         })
     }
 
-    private fun getArticle() {
-        val articleViewModel: ArticleViewModel by viewModels() {
-            ViewModelFactory (requireContext(), "${pref.getToken().token}")
-        }
-
-        val adapter = ArticleListAdapter()
-        binding?.rvArticle?.adapter = adapter.withLoadStateFooter(
-            footer = LoadingStateAdapter() {
-                adapter.retry()
-            }
-        )
-
-        articleViewModel.article.observe(requireActivity()) {
-            adapter.submitData(lifecycle, it)
-        }
-    }
+//    private fun getArticle() {
+//        val articleViewModel: ArticleViewModel by viewModels() {
+//            ViewModelFactory (requireContext(), "${pref.getToken().token}")
+//        }
+//
+//        val adapter = ArticleListAdapter()
+//        binding?.rvArticle?.adapter = adapter.withLoadStateFooter(
+//            footer = LoadingStateAdapter() {
+//                adapter.retry()
+//            }
+//        )
+//
+//        articleViewModel.article.observe(requireActivity()) {
+//            adapter.submitData(lifecycle, it)
+//        }
+//    }
 
     private fun getDoctor() {
         val doctorViewModel: DoctorViewModel by viewModels() {
