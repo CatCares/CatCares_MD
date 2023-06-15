@@ -59,6 +59,9 @@ class ProfileFragment : Fragment() {
                 val showPopUp = ThemeFragment()
                 showPopUp.show((activity as AppCompatActivity).supportFragmentManager, "showTheme")
             }
+            btnLihatArtcle.setOnClickListener {
+                findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToArticleFragment())
+            }
             btnLocationDoctor.setOnClickListener {
                 findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToMapsFragment())
             }

@@ -1,4 +1,4 @@
-package com.ardianhilmip.catcares.data.remote.mediator.doctor
+package com.ardianhilmip.catcares.data.remote.mediator
 
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
@@ -53,7 +53,10 @@ class DoctorRemoteMediator(
                 size = state.config.pageSize
             )
 
-            val endOfPaginationReached = responseData.data.isEmpty()
+//            val endOfPaginationReached = responseData.data.isEmpty()
+            val pageSize = state.config.pageSize
+            val offset = (page - 1) * pageSize
+            val endOfPaginationReached = responseData.data.size < offset
 
             database.withTransaction {
                 if (loadType == LoadType.REFRESH) {

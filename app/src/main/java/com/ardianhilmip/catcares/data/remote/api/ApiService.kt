@@ -59,10 +59,8 @@ interface ApiService {
 
     //Get Article
     @GET("artikel/list-artikel")
-    suspend fun getListArticle(
-        @Header("Authorization") token_auth: String,
-        @Query("page") page: Int,
-        @Query("size") size: Int
-    ): ArticleResponse
+    fun getListArticle(
+        @Header("Authorization") token_auth: String
+    ): Call<ArrayList<ArticleResponse>>
 
 }

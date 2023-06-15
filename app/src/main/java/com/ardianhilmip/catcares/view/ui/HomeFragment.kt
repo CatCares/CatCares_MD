@@ -13,11 +13,11 @@ import com.ardianhilmip.catcares.data.UserPreference
 import com.ardianhilmip.catcares.databinding.FragmentHomeBinding
 import com.ardianhilmip.catcares.data.factory.ViewModelFactory
 import com.ardianhilmip.catcares.data.remote.api.ApiConfig
+import com.ardianhilmip.catcares.data.remote.response.article.ArticleResponse
 import com.ardianhilmip.catcares.data.remote.response.auth.LoginResponse
-import com.ardianhilmip.catcares.view.adapter.ArticleListAdapter
-import com.ardianhilmip.catcares.view.adapter.LoadingStateAdapter
+import com.ardianhilmip.catcares.view.adapter.article.ArticleHomeAdapter
+import com.ardianhilmip.catcares.view.adapter.article.ArticleVerticalAdapter
 import com.ardianhilmip.catcares.view.adapter.doctor.DoctorListAdapter
-import com.ardianhilmip.catcares.view.viewmodel.article.ArticleViewModel
 import com.ardianhilmip.catcares.view.viewmodel.doctor.DoctorViewModel
 import com.bumptech.glide.Glide
 import retrofit2.Call
@@ -30,6 +30,7 @@ class HomeFragment : Fragment() {
     private val pref: UserPreference by lazy {
         UserPreference(requireContext())
     }
+    private val listArticle = ArrayList<ArticleResponse>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,7 +43,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getDoctor()
-//        getArticle()
+        getArticle()
         getName()
         binding?.apply {
             rvDoctor.apply {
@@ -50,6 +51,10 @@ class HomeFragment : Fragment() {
             }
             rvArticle.apply {
                 layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+                setHasFixedSize(true)
+            }
+            btnLihatArtcle.setOnClickListener {
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToArticleFragment())
             }
             btnLihatDoctor.setOnClickListener {
                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDoctorFragment2())
@@ -84,22 +89,29 @@ class HomeFragment : Fragment() {
         })
     }
 
-//    private fun getArticle() {
-//        val articleViewModel: ArticleViewModel by viewModels() {
-//            ViewModelFactory (requireContext(), "${pref.getToken().token}")
-//        }
-//
-//        val adapter = ArticleListAdapter()
-//        binding?.rvArticle?.adapter = adapter.withLoadStateFooter(
-//            footer = LoadingStateAdapter() {
-//                adapter.retry()
-//            }
-//        )
-//
-//        articleViewModel.article.observe(requireActivity()) {
-//            adapter.submitData(lifecycle, it)
-//        }
-//    }
+    private fun getArticle() {
+        val token_auth = "Bearer ${pref.getToken().token}"
+
+        ApiConfig.getApiService().getListArticle(token_auth).enqueue(object :
+            Callback<ArrayList<ArticleResponse>> {
+            override fun onResponse(
+                call: retrofit2.Call<ArrayList<ArticleResponse>>,
+                response: retrofit2.Response<ArrayList<ArticleResponse>>
+            ) {
+                if (response.isSuccessful) {
+                    val list = response.body()
+                    if (list != null) {
+                        listArticle.addAll(list)
+                        binding?.rvArticle?.adapter = ArticleHomeAdapter(listArticle)
+                    }
+                }
+            }
+
+            override fun onFailure(call: retrofit2.Call<ArrayList<ArticleResponse>>, t: Throwable) {
+                t.printStackTrace()
+            }
+        })
+    }
 
     private fun getDoctor() {
         val doctorViewModel: DoctorViewModel by viewModels() {

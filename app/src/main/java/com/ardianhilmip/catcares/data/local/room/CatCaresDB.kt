@@ -6,17 +6,15 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.ardianhilmip.catcares.data.local.entity.DataDoctor
 import com.ardianhilmip.catcares.data.local.entity.RemoteKeys
-import com.ardianhilmip.catcares.data.remote.response.article.ArticleResponseItem
 
 @Database(
-    entities = [ArticleResponseItem::class, DataDoctor::class, RemoteKeys::class],
-    version = 3,
+    entities = [DataDoctor::class, RemoteKeys::class],
+    version = 2,
     exportSchema = false
 )
 abstract class CatCaresDB: RoomDatabase() {
 
     abstract fun doctorDao(): DoctorDao
-    abstract fun articleDao(): ArticleDao
     abstract fun remoteKeysDao(): RemoteKeysDao
 
     companion object {

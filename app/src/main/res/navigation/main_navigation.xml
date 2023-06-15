@@ -91,18 +91,18 @@
             android:id="@+id/action_homeFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_articleFragment"
-            app:destination="@id/articleFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_checkUpFragment"
-            app:destination="@id/checkUpFragment" />
-        <action
             android:id="@+id/action_homeFragment_to_doctorFragment2"
             app:destination="@id/doctorFragment2"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:launchSingleTop="false"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_homeFragment_to_detailDoctorFragment"
+            app:destination="@id/detailDoctorFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -125,17 +125,16 @@
             app:destination="@id/mapsFragment"
             app:popUpTo="@id/profileFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_profileFragment_to_articleFragment"
+            app:destination="@id/articleFragment"
+            app:enterAnim="@anim/slide_in_right" />
     </fragment>
     <fragment
         android:id="@+id/articleFragment"
         android:name="com.ardianhilmip.catcares.view.ui.article.ArticleFragment"
         android:label="fragment_article"
         tools:layout="@layout/fragment_article" />
-    <fragment
-        android:id="@+id/checkUpFragment"
-        android:name="com.ardianhilmip.catcares.view.ui.checkup.CheckUpFragment"
-        android:label="fragment_check_up"
-        tools:layout="@layout/fragment_check_up" />
     <fragment
         android:id="@+id/detectionFragment"
         android:name="com.ardianhilmip.catcares.view.ui.detection.DetectionFragment"
@@ -154,7 +153,29 @@
         android:id="@+id/detailDoctorFragment"
         android:name="com.ardianhilmip.catcares.view.ui.doctor.DetailDoctorFragment"
         android:label="fragment_detail_doctor"
-        tools:layout="@layout/fragment_detail_doctor" />
+        tools:layout="@layout/fragment_detail_doctor" >
+        <argument
+            android:name="dokterId"
+            app:argType="string" />
+        <argument
+            android:name="nama"
+            app:argType="string" />
+        <argument
+            android:name="tipe"
+            app:argType="string" />
+        <argument
+            android:name="email"
+            app:argType="string" />
+        <argument
+            android:name="telepon"
+            app:argType="string" />
+        <argument
+            android:name="alamat"
+            app:argType="string" />
+        <argument
+            android:name="foto"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/doctorFragment2"
         android:name="com.ardianhilmip.catcares.view.ui.doctor.DoctorFragment"

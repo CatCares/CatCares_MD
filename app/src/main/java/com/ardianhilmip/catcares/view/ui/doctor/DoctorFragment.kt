@@ -53,14 +53,12 @@ class DoctorFragment : Fragment() {
         val doctorViewModel: DoctorViewModel by viewModels() {
             ViewModelFactory (requireContext(), "${pref.getToken().token}")
         }
-
         val adapter = DoctorListAdapter()
         binding?.rvDoctor?.adapter = adapter.withLoadStateFooter(
             footer = LoadingStateAdapter() {
                 adapter.retry()
             }
         )
-
         doctorViewModel.doctor.observe(requireActivity()) {
             adapter.submitData(lifecycle, it)
         }

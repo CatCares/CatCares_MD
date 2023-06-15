@@ -48,7 +48,7 @@
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_home">Beranda</string>
     <string name="title_check_up">Check Up</string>
-    <string name="title_article">Artikel</string>
+    <string name="title_article">Halaman Artikel</string>
     <string name="title_profile">Profil</string>
     <string name="title_detection">Halaman Deteksi</string>
     <string name="cat_data">Data Kucing</string>
@@ -120,4 +120,5 @@
     <string name="list_doctor">Daftar Dokter</string>
     <string name="detail_doctor">Detail Dokter</string>
     <string name="detection">Deteksi</string>
+    <string name="article">Artikel</string>
 </resources>

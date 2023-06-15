@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.ardianhilmip.catcares.di.Injection
-import com.ardianhilmip.catcares.view.viewmodel.article.ArticleViewModel
 import com.ardianhilmip.catcares.view.viewmodel.doctor.DoctorViewModel
 
 class ViewModelFactory (private val context: Context, val token: String) : ViewModelProvider.Factory {
@@ -12,10 +11,6 @@ class ViewModelFactory (private val context: Context, val token: String) : ViewM
         if (modelClass.isAssignableFrom(DoctorViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
             return DoctorViewModel(Injection.doctorRepository(context, token)) as T
-        }
-        if (modelClass.isAssignableFrom(ArticleViewModel::class.java)) {
-            @Suppress("UNCHECKED_CAST")
-            return ArticleViewModel(Injection.articleRepository(context, token)) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

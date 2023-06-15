@@ -2,6 +2,7 @@ package com.ardianhilmip.catcares.view.adapter.doctor
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.constraintlayout.motion.widget.MotionScene.Transition.TransitionOnClick
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -13,6 +14,7 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 
 class DoctorListAdapter :
     PagingDataAdapter<DataDoctor, DoctorListAdapter.MyViewHolder>(DIFF_CALLBACK) {
+
 
     class MyViewHolder(private val binding: ItemDoctorBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -26,23 +28,6 @@ class DoctorListAdapter :
                     .transition(DrawableTransitionOptions.withCrossFade())
                     .into(imgProfile)
             }
-//            itemView.setOnClickListener {
-//                val activity = itemView.context as AppCompatActivity
-//                val doctorFragment = DetailDoctorFragment()
-//                val bundle = androidx.core.os.bundleOf(
-//                    DetailDoctorFragment.NAME to doctor.nama,
-//                    DetailDoctorFragment.SPESIALIST to doctor.tipe,
-//                    DetailDoctorFragment.ADDRESS to doctor.alamat,
-//                    DetailDoctorFragment.PHONE to doctor.telepon,
-//                    DetailDoctorFragment.EMAIL to doctor.email,
-//                    DetailDoctorFragment.PHOTO_URL to doctor.foto
-//                )
-//                doctorFragment.arguments = bundle
-//                activity.supportFragmentManager.beginTransaction()
-//                    .replace(R.id.fragment_doctor, doctorFragment)
-//                    .addToBackStack(null)
-//                    .commit()
-//            }
         }
 
     }

@@ -5,7 +5,7 @@ import androidx.paging.*
 import com.ardianhilmip.catcares.data.local.entity.DataDoctor
 import com.ardianhilmip.catcares.data.local.room.CatCaresDB
 import com.ardianhilmip.catcares.data.remote.api.ApiService
-import com.ardianhilmip.catcares.data.remote.mediator.doctor.DoctorRemoteMediator
+import com.ardianhilmip.catcares.data.remote.mediator.DoctorRemoteMediator
 
 class DoctorRepository(
     private val database: CatCaresDB,
@@ -16,7 +16,7 @@ class DoctorRepository(
         @OptIn(ExperimentalPagingApi::class)
         return Pager(
             config = PagingConfig(
-                pageSize = 2
+                pageSize = 5
             ),
             remoteMediator = DoctorRemoteMediator(database, service, token),
             pagingSourceFactory = {
