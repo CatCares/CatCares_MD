@@ -5,6 +5,7 @@ plugins {
     id 'com.google.gms.google-services'
     id 'kotlin-kapt'
     id 'kotlin-parcelize'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
 
 android {
@@ -17,7 +18,7 @@ android {
         targetSdk 33
         versionCode 1
         versionName "1.0"
-
+        buildConfigField "String", "BASE_URL", "\"https://catcaresapi-leqtuvqrmq-et.a.run.app/\""
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -45,6 +46,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
 
     // Test
     testImplementation 'junit:junit:4.13.2'

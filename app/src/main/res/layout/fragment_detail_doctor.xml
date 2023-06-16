@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.ui.doctor.DetailDoctorFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_detail_dokter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/psemibold"
+            android:gravity="center"
+            android:text="@string/detail_doctor"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/img_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:src="@drawable/ic_back"
+            android:backgroundTint="@color/yellow_200"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_detail_dokter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_detail_dokter" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_profile"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
+            app:civ_border_color="@color/blue_500"
+            app:civ_border_width="2dp"
+            android:padding="2dp"
+            android:contentDescription="@string/photo_profile"
+            android:src="@drawable/ic_baseline_account_circle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_detail_dokter"/>
+
+        <TextView
+            android:id="@+id/name_doctor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/doctor_name"
+            android:textSize="20sp"
+            android:fontFamily="@font/psemibold"
+            app:layout_constraintTop_toBottomOf="@id/img_profile"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:id="@+id/tv_spesialist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/spesialis"
+            android:textSize="14sp"
+            android:fontFamily="@font/pregular"
+            app:layout_constraintTop_toBottomOf="@+id/name_doctor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.ardianhilmip.catcares.view.custom.InputEmail
+            android:id="@+id/dataEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            android:padding="15dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_spesialist"/>
+
+        <com.ardianhilmip.catcares.view.custom.InputNoHp
+            android:id="@+id/dataPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            android:padding="15dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dataEmail"/>
+
+        <com.ardianhilmip.catcares.view.custom.InputAddress
+            android:id="@+id/dataAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            android:padding="15dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dataPhone"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

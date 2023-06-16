@@ -1,46 +1,202 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.ui.HomeFragment">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBar"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true">
+        android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:title="@string/app_name"
-            app:titleTextColor="@color/white"
-            app:layout_scrollFlags="scroll|enterAlwaysCollapsed" />
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_profile"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="20dp"
+            android:contentDescription="@string/photo_profile"
+            android:padding="2dp"
+            android:src="@drawable/ic_baseline_account_circle"
+            app:civ_border_color="@color/blue_500"
+            app:civ_border_overlay="true"
+            app:civ_border_width="2dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginStart="6dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/img_profile"
+            app:layout_constraintStart_toEndOf="@+id/img_profile"
+            app:layout_constraintTop_toTopOf="@+id/img_profile">
+
             <TextView
-                android:id="@+id/tv_popular_recipe"
+                android:id="@+id/tv_spesialis"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="18dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/title_home"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/pregular"
+                android:text="@string/welcome"
+                android:textSize="14sp" />
 
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/psemibold"
+                android:text="@string/fullname"
+                android:textSize="20sp" />
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+        <ImageButton
+            android:id="@+id/btn_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="18dp"
+            android:background="@drawable/bg_notif"
+            android:contentDescription="@string/notification"
+            android:src="@drawable/ic_home_notification"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/linearLayout"
+            tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/tv_tambah_kucing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/psemibold"
+            android:text="@string/add_cat"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_profile" />
+
+        <HorizontalScrollView
+
+            android:id="@+id/add_cat_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tv_tambah_kucing"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="18dp"
+                android:orientation="horizontal">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_cat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp"
+                    android:overScrollMode="never"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp"
+                    android:background="@drawable/bg_add_cat_layout"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <ImageButton
+                        android:id="@+id/btn_add_cat"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/bg_add_cat"
+                        android:contentDescription="@string/add_cat"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/ic_baseline_add_24" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/pmedium"
+                        android:text="@string/add"
+                        android:textColor="@color/gray_800"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+
+
+        <TextView
+            android:id="@+id/tv_doctor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/psemibold"
+            android:text="@string/tv_doctor"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_cat_layout" />
+
+        <TextView
+            android:id="@+id/btn_lihat_doctor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/all_see"
+            android:textSize="10sp"
+            android:fontFamily="@font/pregular"
+            android:layout_marginEnd="18dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_doctor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_doctor" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_doctor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            app:layout_constraintTop_toBottomOf="@+id/tv_doctor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_article"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/psemibold"
+            android:text="@string/tv_article"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_doctor" />
+
+        <TextView
+            android:id="@+id/btn_lihat_artcle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/all_see"
+            android:textSize="10sp"
+            android:fontFamily="@font/pregular"
+            android:layout_marginEnd="18dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_article"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_article" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_article"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            android:textAlignment="inherit"
+            app:layout_constraintTop_toBottomOf="@+id/tv_article"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingBottom="100dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -5,11 +5,12 @@
         android:enabled="true"
         android:icon="@drawable/ic_navigation_home"
         android:title="@string/title_home" />
+
     <item
-        android:id="@+id/checkUpFragment"
+        android:id="@+id/catFragment"
         android:enabled="true"
-        android:icon="@drawable/ic_navigation_checkup"
-        android:title="@string/title_check_up" />
+        android:icon="@drawable/ic_data_cat"
+        android:title="@string/title_cats" />
     <item
         android:id="@+id/detectionFragment"
         android:enabled="false"
@@ -19,7 +20,8 @@
         android:id="@+id/articleFragment"
         android:enabled="true"
         android:icon="@drawable/ic_navigation_article"
-        android:title="@string/title_article" />
+        android:title="@string/article" />
+
     <item
         android:id="@+id/profileFragment"
         android:enabled="true"

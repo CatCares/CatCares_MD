@@ -14,7 +14,6 @@ import com.google.firebase.auth.FirebaseAuth
 class ForgotFragment : Fragment() {
     private var _binding: FragmentForgotBinding? = null
     private val binding get() = _binding
-    private lateinit var auth: FirebaseAuth
 
 
     override fun onCreateView(
@@ -23,23 +22,6 @@ class ForgotFragment : Fragment() {
     ): View? {
         _binding = FragmentForgotBinding.inflate(inflater, container, false)
 
-        auth = FirebaseAuth.getInstance()
-
-        binding?.apply {
-            btnResetPassword.setOnClickListener {
-                val email = inputEmail.text.toString().trim()
-
-                auth.sendPasswordResetEmail(email)
-                    .addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
-                            findNavController().popBackStack()
-                            Toast.makeText(requireContext(), getString(R.string.check_email), Toast.LENGTH_SHORT).show()
-                        } else {
-                            Toast.makeText(requireContext(), task.exception?.message, Toast.LENGTH_SHORT).show()
-                        }
-                    }
-            }
-        }
 
         return binding?.root
     }

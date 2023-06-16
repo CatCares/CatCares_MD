@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray_200"
     tools:context=".view.ui.auth.RegisterFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,7 +19,6 @@
             android:layout_marginTop="35dp"
             android:fontFamily="@font/psemibold"
             android:text="@string/register_title"
-            android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
@@ -32,26 +30,24 @@
             android:fontFamily="@font/plight"
             android:paddingHorizontal="18dp"
             android:text="@string/login_subtitle"
-            android:textColor="@color/black"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title" />
 
         <TextView
-            android:id="@+id/textName"
+            android:id="@+id/textFirstName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/psemibold"
-            android:text="@string/name"
-            android:textColor="@color/black"
+            android:text="@string/first_name"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/subtitle" />
 
-        <com.ardianhilmip.catcares.view.custom.InputName
-            android:id="@+id/inputName"
+        <com.ardianhilmip.catcares.view.custom.InputFirstName
+            android:id="@+id/inputFirstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
@@ -59,23 +55,22 @@
             android:padding="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textName" />
+            app:layout_constraintTop_toBottomOf="@+id/textFirstName" />
 
         <TextView
-            android:id="@+id/textPhone"
+            android:id="@+id/textLastName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/psemibold"
-            android:text="@string/no_hp"
-            android:textColor="@color/black"
+            android:text="@string/last_name"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputName" />
+            app:layout_constraintTop_toBottomOf="@+id/inputFirstName" />
 
-        <com.ardianhilmip.catcares.view.custom.InputNoHp
-            android:id="@+id/inputPhone"
+        <com.ardianhilmip.catcares.view.custom.InputLastName
+            android:id="@+id/inputLastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
@@ -83,31 +78,7 @@
             android:padding="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textPhone" />
-
-        <TextView
-            android:id="@+id/textAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/psemibold"
-            android:text="@string/address"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputPhone" />
-
-        <com.ardianhilmip.catcares.view.custom.InputAddress
-            android:id="@+id/inputAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginEnd="18dp"
-            android:padding="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textAddress" />
+            app:layout_constraintTop_toBottomOf="@+id/textLastName" />
 
         <TextView
             android:id="@+id/textEmail"
@@ -117,10 +88,9 @@
             android:layout_marginTop="15dp"
             android:fontFamily="@font/psemibold"
             android:text="@string/email"
-            android:textColor="@color/black"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputAddress" />
+            app:layout_constraintTop_toBottomOf="@+id/inputLastName" />
 
         <com.ardianhilmip.catcares.view.custom.InputEmail
             android:id="@+id/inputEmail"
@@ -141,7 +111,6 @@
             android:layout_marginTop="12dp"
             android:fontFamily="@font/psemibold"
             android:text="@string/password"
-            android:textColor="@color/black"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
@@ -165,7 +134,6 @@
             android:layout_marginTop="12dp"
             android:fontFamily="@font/psemibold"
             android:text="@string/confirm_password"
-            android:textColor="@color/black"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/inputPassword" />
@@ -221,7 +189,6 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/pregular"
                     android:text="@string/have_account"
-                    android:textColor="@color/black"
                     android:textSize="13sp" />
 
                 <TextView
@@ -231,7 +198,6 @@
                     android:layout_marginStart="5dp"
                     android:fontFamily="@font/psemibold"
                     android:text="@string/login"
-                    android:textColor="@color/black"
                     android:textSize="13sp" />
             </TableRow>
 
@@ -240,7 +206,7 @@
             android:id="@+id/progressBar"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:visibility="invisible"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

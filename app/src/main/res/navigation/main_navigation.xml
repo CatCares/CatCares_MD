@@ -9,7 +9,7 @@
         android:id="@+id/splashFragment"
         android:name="com.ardianhilmip.catcares.view.ui.SplashFragment"
         android:label="fragment_splash"
-        tools:layout="@layout/fragment_splash" >
+        tools:layout="@layout/fragment_splash">
         <action
             android:id="@+id/action_splashFragment_to_onboardFragment"
             app:destination="@id/onboardFragment"
@@ -31,7 +31,7 @@
     <fragment
         android:id="@+id/onboardFragment"
         android:name="com.ardianhilmip.catcares.view.ui.onboarding.OnboardFragment"
-        android:label="OnboardFragment" >
+        android:label="OnboardFragment">
         <action
             android:id="@+id/action_onboardFragment_to_loginFragment"
             app:destination="@id/loginFragment"
@@ -49,7 +49,7 @@
         android:id="@+id/loginFragment"
         android:name="com.ardianhilmip.catcares.view.ui.auth.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_forgotFragment"
             app:destination="@id/forgotFragment"
@@ -70,7 +70,7 @@
         android:id="@+id/registerFragment"
         android:name="com.ardianhilmip.catcares.view.ui.auth.RegisterFragment"
         android:label="fragment_register"
-        tools:layout="@layout/fragment_register" >
+        tools:layout="@layout/fragment_register">
         <action
             android:id="@+id/action_registerFragment_to_homeFragment"
             app:destination="@id/homeFragment"
@@ -86,30 +86,48 @@
         android:id="@+id/homeFragment"
         android:name="com.ardianhilmip.catcares.view.ui.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
         <action
+            android:id="@+id/action_homeFragment_to_doctorFragment2"
+            app:destination="@id/doctorFragment2"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="false"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_homeFragment_to_detailDoctorFragment"
+            app:destination="@id/detailDoctorFragment" />
+        <action
             android:id="@+id/action_homeFragment_to_articleFragment"
             app:destination="@id/articleFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_checkUpFragment"
-            app:destination="@id/checkUpFragment" />
+            android:id="@+id/action_homeFragment_self"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.ardianhilmip.catcares.view.ui.profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" >
+        tools:layout="@layout/fragment_profile">
         <action
             android:id="@+id/action_profileFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/main_navigation"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_profileFragment_to_seeProfileFragment"
             app:destination="@id/seeProfileFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_profileFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment"
+            app:popUpTo="@id/profileFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/articleFragment"
@@ -117,18 +135,93 @@
         android:label="fragment_article"
         tools:layout="@layout/fragment_article" />
     <fragment
-        android:id="@+id/checkUpFragment"
-        android:name="com.ardianhilmip.catcares.view.ui.checkup.CheckUpFragment"
-        android:label="fragment_check_up"
-        tools:layout="@layout/fragment_check_up" />
-    <fragment
         android:id="@+id/detectionFragment"
         android:name="com.ardianhilmip.catcares.view.ui.detection.DetectionFragment"
         android:label="fragment_detection"
-        tools:layout="@layout/fragment_detection" />
+        tools:layout="@layout/fragment_detection" >
+        <action
+            android:id="@+id/action_detectionFragment_to_amanFragment"
+            app:destination="@id/amanFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_detectionFragment_to_terdeteksiFragment"
+            app:destination="@id/terdeteksiFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/seeProfileFragment"
         android:name="com.ardianhilmip.catcares.view.ui.profile.SeeProfileFragment"
         android:label="fragment_see_profile"
         tools:layout="@layout/fragment_see_profile" />
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.ardianhilmip.catcares.view.ui.profile.maps.MapsFragment"
+        android:label="MapsFragment" />
+    <fragment
+        android:id="@+id/detailDoctorFragment"
+        android:name="com.ardianhilmip.catcares.view.ui.doctor.DetailDoctorFragment"
+        android:label="fragment_detail_doctor"
+        tools:layout="@layout/fragment_detail_doctor" >
+        <argument
+            android:name="dokterId"
+            app:argType="string" />
+        <argument
+            android:name="nama"
+            app:argType="string" />
+        <argument
+            android:name="tipe"
+            app:argType="string" />
+        <argument
+            android:name="email"
+            app:argType="string" />
+        <argument
+            android:name="telepon"
+            app:argType="string" />
+        <argument
+            android:name="alamat"
+            app:argType="string" />
+        <argument
+            android:name="foto"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/doctorFragment2"
+        android:name="com.ardianhilmip.catcares.view.ui.doctor.DoctorFragment"
+        android:label="fragment_doctor"
+        tools:layout="@layout/fragment_doctor">
+        <action
+            android:id="@+id/action_doctorFragment2_to_detailDoctorFragment"
+            app:destination="@id/detailDoctorFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popUpTo="@id/doctorFragment2"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/amanFragment"
+        android:name="com.ardianhilmip.catcares.view.ui.detection.AmanFragment"
+        android:label="fragment_aman"
+        tools:layout="@layout/fragment_aman" >
+        <action
+            android:id="@+id/action_amanFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/terdeteksiFragment"
+        android:name="com.ardianhilmip.catcares.view.ui.detection.TerdeteksiFragment"
+        android:label="fragment_terdeteksi"
+        tools:layout="@layout/fragment_terdeteksi" >
+        <action
+            android:id="@+id/action_terdeteksiFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/catFragment"
+        android:name="com.ardianhilmip.catcares.view.ui.cat.CatFragment"
+        android:label="fragment_cat"
+        tools:layout="@layout/fragment_cat" />
 </navigation>

@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray_200"
     tools:context=".view.ui.auth.ForgotFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -29,7 +28,6 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/psemibold"
             android:text="@string/title_forgot_password"
-            android:textColor="@color/black"
             android:textSize="20sp"
             android:layout_marginStart="18dp"
             android:layout_marginTop="25dp"
@@ -43,7 +41,6 @@
             android:fontFamily="@font/plight"
             android:paddingHorizontal="18dp"
             android:text="@string/subtitle_forgot_password"
-            android:textColor="@color/black"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +54,6 @@
             android:layout_marginTop="15dp"
             android:fontFamily="@font/psemibold"
             android:text="@string/email"
-            android:textColor="@color/black"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/subtitle" />
