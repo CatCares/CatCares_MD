@@ -19,7 +19,7 @@
 
 ### Demo Application :
 
-![Uploading tutor.gif…]()
+![tutor](https://github.com/CatCares/CatCares_MD/assets/74774957/1e36d1c0-08fc-415d-bdaa-1cc1f5165381)
 
 ### Development Roadmap :
 
