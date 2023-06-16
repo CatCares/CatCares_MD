@@ -10,3 +10,7 @@
 
 ### Android Development Member :
 * A063DSX1217 - Ardian Hilmi Pramulintang - Politeknik Negeri Jember
+
+# Android Architecture
+
+![Android Architectur](https://github.com/CatCares/CatCares_MD/assets/74774957/4b0d1260-27be-4b43-8007-18cd81f1f46f)
