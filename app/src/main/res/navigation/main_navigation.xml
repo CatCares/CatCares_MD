@@ -206,10 +206,7 @@
             android:id="@+id/action_amanFragment_to_homeFragment"
             app:destination="@id/homeFragment"
             app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:launchSingleTop="true"
-            app:popUpTo="@id/main_navigation"
-            app:popUpToInclusive="true"/>
+            app:exitAnim="@anim/slide_out_left"/>
     </fragment>
     <fragment
         android:id="@+id/terdeteksiFragment"
@@ -220,10 +217,7 @@
             android:id="@+id/action_terdeteksiFragment_to_homeFragment"
             app:destination="@id/homeFragment"
             app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:launchSingleTop="true"
-            app:popUpTo="@id/main_navigation"
-            app:popUpToInclusive="true"/>
+            app:exitAnim="@anim/slide_out_left"/>
     </fragment>
     <fragment
         android:id="@+id/catFragment"

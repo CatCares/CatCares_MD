@@ -195,6 +195,6 @@ class DetectionFragment : Fragment() {
     companion object {
         private const val REQUEST_CODE_PERMISSIONS = 10
         private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
-        const val DETECTION_TIME = 2000L
+        const val DETECTION_TIME = 500L
     }
 }
