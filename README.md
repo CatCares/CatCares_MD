@@ -17,7 +17,7 @@
 
 ![Android Architectur](https://github.com/CatCares/CatCares_MD/assets/74774957/e4330ef9-a160-4217-99da-278f7e523aed)
 
-### Development Roadmap
+### Development Roadmap :
 
 * [Kotlin](https://kotlinlang.org/)
 * [Glide](https://github.com/bumptech/glide)
@@ -28,7 +28,7 @@
 * [Navigation Component](https://developer.android.com/guide/navigation/navigation-getting-started?hl=id)
 * [Google Maps Platform](https://developers.google.com/maps/documentation)
 
-### Features
+### Features :
 
 1. Ringworm Detection : this features allows you to predict ringworm disease of cat by uploading image of your cat 
 2. Article Feature : this feature can allow you to read current articles about cats
@@ -36,3 +36,9 @@
 4. (FUTURE) Check Up Cat
 5. (FUTURE) Displays the location of nearby veterinarians
 6. (FUTURE) Consultation about cat animals with a vetenarian
+
+### Requirements :
+
+* Android Studio Dolphin 2021.3.1
+* External Device with minimum Lollipop Version
+* USB Cable (to Connect Android Device to your Computer)
