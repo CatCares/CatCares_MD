@@ -48,3 +48,20 @@
 * USB Cable (to Connect Android Device to your Computer)
 
 # How to Install
+
+1. Download CatCares App
+   [Download App](https://drive.google.com/file/d/1chpCCTL0WrURdgYgJikmcwsiVKFfoswH/view?usp=sharing)
+2. How to clone this Project
+   a. Clone this project to your Computer
+   ```
+   https://github.com/CatCares/CatCares_MD.git 
+   ```
+   or you can use Android Studio
+
+    File > New > Project from Version Control ...
+
+    b. Open the Project in your Android Studio Open Android Studio and select open an existing project.
+
+    c. Run Project in Android Studio
+
+    Wait for Gradle Build to Finish and finally press the Run > Run ‘app’. Now the app has been installed in your phone / emulator. Make sure that you have configured your android device or emulator
