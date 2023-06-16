@@ -7,3 +7,6 @@
 # Profile
 
 ### Team ID : C23 - PR579
+
+### Android Development Member :
+* A063DSX1217 - Ardian Hilmi Pramulintang - Politeknik Negeri Jember
