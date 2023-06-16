@@ -27,7 +27,7 @@
     <string name="input_first_name">Masukkan Nama Depan</string>
     <string name="input_last_name">Masukkan Nama Belakang</string>
     <string name="input_address">Masukkan Alamat</string>
-    <string name="input_no_hp">Masukkan No HP</string>
+    <string name="input_no_hp">Masukkan Nomor Handphone</string>
     <string name="invalid_email">Email tidak valid</string>
     <string name="invalid_password">Password minimal 6 karakter</string>
     <string name="email">Email</string>
@@ -60,7 +60,7 @@
     <string name="title_forgot_password">Password Anda Lupa?</string>
     <string name="subtitle_forgot_password">Masukkan email anda untuk melakukan reset password</string>
     <string name="reset_password">Reset Password</string>
-    <string name="check_email">Check email to reset your password!</string>
+    <string name="check_email">Periksa email untuk mengatur ulang kata sandi Anda!</string>
     <string name="logout">Keluar</string>
     <string name="edit_profile">Edit Profil</string>
     <string name="add_photo">Tambah Foto</string>
@@ -112,7 +112,7 @@
     <string name="spesialis">Jenis spesialis</string>
     <string name="time">Pukul 09.00 WIB</string>
     <string name="date">Senin, 28 Mei 2023</string>
-    <string name="tv_doctor">Dokter Hewan Terdekat</string>
+    <string name="tv_doctor">Dokter Hewan Teratas</string>
     <string name="tv_article">Artikel Terkini</string>
     <string name="not_permission">Tidak memiliki izin</string>
     <string name="update_success">User telah diupdate</string>

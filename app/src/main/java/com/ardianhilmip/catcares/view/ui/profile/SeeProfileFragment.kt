@@ -175,7 +175,7 @@ class SeeProfileFragment : Fragment() {
 
                         updateViewModel.error.observe(viewLifecycleOwner) { error ->
                             updateViewModel.message.observe(viewLifecycleOwner) { message ->
-                                if (message == getString(R.string.update_success)) {
+                                if (message == "User telah diupdate") {
                                     val builder = AlertDialog.Builder(requireContext())
                                     builder.setIcon(R.drawable.ic_baseline_check_24)
                                     builder.setTitle(getString(R.string.Info))

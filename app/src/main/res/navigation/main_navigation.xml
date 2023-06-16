@@ -207,7 +207,9 @@
             app:destination="@id/homeFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
-            app:popUpToInclusive="true" />
+            app:launchSingleTop="true"
+            app:popUpTo="@id/main_navigation"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/terdeteksiFragment"
@@ -219,7 +221,9 @@
             app:destination="@id/homeFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
-            app:popUpToInclusive="true" />
+            app:launchSingleTop="true"
+            app:popUpTo="@id/main_navigation"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/catFragment"

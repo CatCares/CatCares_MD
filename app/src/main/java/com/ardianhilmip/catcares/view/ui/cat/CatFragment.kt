@@ -129,7 +129,7 @@ class CatFragment : Fragment() {
                         )
 
                         viewModel.message.observe(viewLifecycleOwner) { message ->
-                            if (message == getString(R.string.add_cat_success)) {
+                            if (message == "Kucing berhasil dibuat") {
                                 val builder = AlertDialog.Builder(requireContext())
                                 builder.setIcon(R.drawable.ic_baseline_check_24)
                                 builder.setTitle(getString(R.string.Info))
