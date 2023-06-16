@@ -27,3 +27,5 @@
 * [Intent Camera & Gallery](https://medium.com/developer-student-clubs/android-kotlin-camera-using-gallery-ff8591c26c3e)
 * [Navigation Component](https://developer.android.com/guide/navigation/navigation-getting-started?hl=id)
 * [Google Maps Platform](https://developers.google.com/maps/documentation)
+
+## adadada
