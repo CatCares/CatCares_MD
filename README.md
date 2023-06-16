@@ -65,4 +65,4 @@
    
    c. Run Project in Android Studio   
    
-   Wait for Gradle Build to Finish and finally press the ` Run > Run ‘app’`. Now the app has been installed in your phone / emulator. Make sure that you have configured your android device or emulator
+   Wait for Gradle Build to Finish and finally press the `Run > Run ‘app’`. Now the app has been installed in your phone / emulator. Make sure that you have configured your android device or emulator
