@@ -70,6 +70,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun isMainPage(currentDestination: NavDestination): Boolean {
         return currentDestination.id == R.id.homeFragment
+                || currentDestination.id == R.id.catFragment
+                || currentDestination.id == R.id.articleFragment
                 || currentDestination.id == R.id.profileFragment
     }
 

@@ -4,18 +4,22 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.ardianhilmip.catcares.data.local.entity.DataCat
 import com.ardianhilmip.catcares.data.local.entity.DataDoctor
+import com.ardianhilmip.catcares.data.local.entity.DataItem
 import com.ardianhilmip.catcares.data.local.entity.RemoteKeys
 
 @Database(
-    entities = [DataDoctor::class, RemoteKeys::class],
-    version = 2,
+    entities = [DataDoctor::class, RemoteKeys::class, DataItem::class, DataCat::class],
+    version = 4,
     exportSchema = false
 )
 abstract class CatCaresDB: RoomDatabase() {
 
     abstract fun doctorDao(): DoctorDao
     abstract fun remoteKeysDao(): RemoteKeysDao
+    abstract fun articleDao(): ArticleDao
+    abstract fun catDao(): CatDao
 
     companion object {
         @Volatile

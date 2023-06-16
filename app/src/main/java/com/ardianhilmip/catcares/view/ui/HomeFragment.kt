@@ -10,14 +10,18 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ardianhilmip.catcares.data.UserPreference
+import com.ardianhilmip.catcares.data.factory.ArticleModelFactory
+import com.ardianhilmip.catcares.data.factory.CatModelFactory
 import com.ardianhilmip.catcares.databinding.FragmentHomeBinding
 import com.ardianhilmip.catcares.data.factory.ViewModelFactory
 import com.ardianhilmip.catcares.data.remote.api.ApiConfig
-import com.ardianhilmip.catcares.data.remote.response.article.ArticleResponse
 import com.ardianhilmip.catcares.data.remote.response.auth.LoginResponse
-import com.ardianhilmip.catcares.view.adapter.article.ArticleHomeAdapter
-import com.ardianhilmip.catcares.view.adapter.article.ArticleVerticalAdapter
+import com.ardianhilmip.catcares.view.adapter.LoadingStateAdapter
+import com.ardianhilmip.catcares.view.adapter.article.ArticleAdapter
+import com.ardianhilmip.catcares.view.adapter.cat.CatListAdapter
 import com.ardianhilmip.catcares.view.adapter.doctor.DoctorListAdapter
+import com.ardianhilmip.catcares.view.viewmodel.article.ArticleViewModel
+import com.ardianhilmip.catcares.view.viewmodel.cat.GetCatViewModel
 import com.ardianhilmip.catcares.view.viewmodel.doctor.DoctorViewModel
 import com.bumptech.glide.Glide
 import retrofit2.Call
@@ -30,7 +34,6 @@ class HomeFragment : Fragment() {
     private val pref: UserPreference by lazy {
         UserPreference(requireContext())
     }
-    private val listArticle = ArrayList<ArticleResponse>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,13 +48,16 @@ class HomeFragment : Fragment() {
         getDoctor()
         getArticle()
         getName()
+        getCat()
         binding?.apply {
             rvDoctor.apply {
                 layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
             }
             rvArticle.apply {
                 layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-                setHasFixedSize(true)
+            }
+            rvCat.apply {
+                layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             }
             btnLihatArtcle.setOnClickListener {
                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToArticleFragment())
@@ -90,27 +96,31 @@ class HomeFragment : Fragment() {
     }
 
     private fun getArticle() {
-        val token_auth = "Bearer ${pref.getToken().token}"
+        val articleViewModel: ArticleViewModel by viewModels() {
+            ArticleModelFactory(requireContext(), "${pref.getToken().token}")
+        }
 
-        ApiConfig.getApiService().getListArticle(token_auth).enqueue(object :
-            Callback<ArrayList<ArticleResponse>> {
-            override fun onResponse(
-                call: retrofit2.Call<ArrayList<ArticleResponse>>,
-                response: retrofit2.Response<ArrayList<ArticleResponse>>
-            ) {
-                if (response.isSuccessful) {
-                    val list = response.body()
-                    if (list != null) {
-                        listArticle.addAll(list)
-                        binding?.rvArticle?.adapter = ArticleHomeAdapter(listArticle)
-                    }
-                }
+        val adapter = ArticleAdapter()
+        binding?.rvArticle?.adapter = adapter.withLoadStateFooter(
+            footer = LoadingStateAdapter() {
+                adapter.retry()
             }
+        )
+        articleViewModel.article.observe(requireActivity()) {
+            adapter.submitData(requireActivity().lifecycle, it)
+        }
+    }
 
-            override fun onFailure(call: retrofit2.Call<ArrayList<ArticleResponse>>, t: Throwable) {
-                t.printStackTrace()
-            }
-        })
+    private fun getCat() {
+        val catViewModel: GetCatViewModel by viewModels() {
+            CatModelFactory (requireContext(), "${pref.getToken().token}")
+        }
+        val adapter = CatListAdapter()
+        binding?.rvCat?.adapter = adapter
+
+        catViewModel.cat.observe(requireActivity()) {
+            adapter.submitData(lifecycle, it)
+        }
     }
 
     private fun getDoctor() {

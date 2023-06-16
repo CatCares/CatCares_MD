@@ -4,20 +4,21 @@ import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.ardianhilmip.catcares.data.remote.response.article.ArticleResponse
+import com.ardianhilmip.catcares.data.local.entity.DataItem
 import com.ardianhilmip.catcares.databinding.ItemBannerArticleBinding
 import com.bumptech.glide.Glide
-import com.squareup.picasso.Picasso
 
-class BannerArticleAdapter(private val list: ArrayList<ArticleResponse>) :
-    RecyclerView.Adapter<BannerArticleAdapter.ViewHolder>() {
+class BannerArticleAdapter :
+    PagingDataAdapter<DataItem, BannerArticleAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
-    class ViewHolder(private val binding: ItemBannerArticleBinding) :
+    class MyViewHolder(private val binding: ItemBannerArticleBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(article: ArticleResponse) {
+        fun bind(article: DataItem) {
             binding.apply {
-                tvItemTitle.setText(article.judul)
+                tvItemTitle.text = article.judul
                 Glide.with(itemView)
                     .load(article.foto)
                     .into(ivItemPhoto)
@@ -28,17 +29,29 @@ class BannerArticleAdapter(private val list: ArrayList<ArticleResponse>) :
                 }
             }
         }
+
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        val data = getItem(position)
+        if (data != null) {
+            holder.bind(data)
+        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding = ItemBannerArticleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ViewHolder(binding)
+        return MyViewHolder(binding)
     }
-    override fun getItemCount() = 2
+    companion object {
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<DataItem>() {
+            override fun areItemsTheSame(oldItem: DataItem, newItem: DataItem): Boolean {
+                return oldItem.artikelId == newItem.artikelId
+            }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val article = list[position]
-        holder.bind(article)
+            override fun areContentsTheSame(oldItem: DataItem, newItem: DataItem): Boolean {
+                return oldItem == newItem
+            }
+        }
     }
-
 }

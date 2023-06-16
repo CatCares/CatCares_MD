@@ -5,10 +5,22 @@
         android:enabled="true"
         android:icon="@drawable/ic_navigation_home"
         android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/catFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_data_cat"
+        android:title="@string/title_cats" />
     <item
         android:id="@+id/detectionFragment"
         android:enabled="false"
         android:title=""/>
+
+    <item
+        android:id="@+id/articleFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_navigation_article"
+        android:title="@string/article" />
 
     <item
         android:id="@+id/profileFragment"

@@ -5,15 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ardianhilmip.catcares.data.UserPreference
-import com.ardianhilmip.catcares.data.remote.api.ApiConfig
-import com.ardianhilmip.catcares.data.remote.response.article.ArticleResponse
+import com.ardianhilmip.catcares.data.factory.ArticleModelFactory
 import com.ardianhilmip.catcares.databinding.FragmentArticleBinding
+import com.ardianhilmip.catcares.view.adapter.LoadingStateAdapter
+import com.ardianhilmip.catcares.view.adapter.article.ArticleAdapter
 import com.ardianhilmip.catcares.view.adapter.article.BannerArticleAdapter
-import com.ardianhilmip.catcares.view.adapter.article.ArticleVerticalAdapter
-import retrofit2.Callback
+import com.ardianhilmip.catcares.view.viewmodel.article.ArticleViewModel
 
 class ArticleFragment : Fragment() {
     private var _binding: FragmentArticleBinding? = null
@@ -21,7 +21,6 @@ class ArticleFragment : Fragment() {
     private val pref: UserPreference by lazy {
         UserPreference(requireContext())
     }
-    private val listArticle = ArrayList<ArticleResponse>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,63 +37,42 @@ class ArticleFragment : Fragment() {
         binding?.apply {
             listArticle.apply {
                 layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-                setHasFixedSize(true)
             }
             bannerArticle.apply {
                 layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-                setHasFixedSize(true)
-            }
-            imgBack.setOnClickListener {
-                findNavController().popBackStack()
             }
         }
     }
 
     private fun getArticle() {
-        val token_auth = "Bearer ${pref.getToken().token}"
+        val articleViewModel: ArticleViewModel by viewModels() {
+            ArticleModelFactory(requireContext(), "${pref.getToken().token}")
+        }
 
-        ApiConfig.getApiService().getListArticle(token_auth).enqueue(object :
-            Callback<ArrayList<ArticleResponse>> {
-            override fun onResponse(
-                call: retrofit2.Call<ArrayList<ArticleResponse>>,
-                response: retrofit2.Response<ArrayList<ArticleResponse>>
-            ) {
-                if (response.isSuccessful) {
-                    val list = response.body()
-                    if (list != null) {
-                        listArticle.addAll(list)
-                        binding?.listArticle?.adapter = ArticleVerticalAdapter(listArticle)
-                    }
-                }
+        val adapter = ArticleAdapter()
+        binding?.listArticle?.adapter = adapter.withLoadStateFooter(
+            footer = LoadingStateAdapter() {
+                adapter.retry()
             }
-
-            override fun onFailure(call: retrofit2.Call<ArrayList<ArticleResponse>>, t: Throwable) {
-                t.printStackTrace()
-            }
-        })
+        )
+        articleViewModel.article.observe(requireActivity()) {
+            adapter.submitData(requireActivity().lifecycle, it)
+        }
     }
     private fun getBanner() {
-        val token_auth = "Bearer ${pref.getToken().token}"
+        val articleViewModel: ArticleViewModel by viewModels() {
+            ArticleModelFactory(requireContext(), "${pref.getToken().token}")
+        }
 
-        ApiConfig.getApiService().getListArticle(token_auth).enqueue(object :
-            Callback<ArrayList<ArticleResponse>> {
-            override fun onResponse(
-                call: retrofit2.Call<ArrayList<ArticleResponse>>,
-                response: retrofit2.Response<ArrayList<ArticleResponse>>
-            ) {
-                if (response.isSuccessful) {
-                    val list = response.body()
-                    if (list != null) {
-                        listArticle.addAll(list)
-                        binding?.bannerArticle?.adapter = BannerArticleAdapter(listArticle)
-                    }
-                }
+        val adapter = BannerArticleAdapter()
+        binding?.bannerArticle?.adapter = adapter.withLoadStateFooter(
+            footer = LoadingStateAdapter() {
+                adapter.retry()
             }
-
-            override fun onFailure(call: retrofit2.Call<ArrayList<ArticleResponse>>, t: Throwable) {
-                t.printStackTrace()
-            }
-        })
+        )
+        articleViewModel.article.observe(requireActivity()) {
+            adapter.submitData(requireActivity().lifecycle, it)
+        }
     }
 
     override fun onDestroy() {
