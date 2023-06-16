@@ -13,4 +13,5 @@
 
 # Android Architecture
 
-![Android Architectur](https://github.com/CatCares/CatCares_MD/assets/74774957/4b0d1260-27be-4b43-8007-18cd81f1f46f)
+![Android Architectur](https://github.com/CatCares/CatCares_MD/assets/74774957/e4330ef9-a160-4217-99da-278f7e523aed)
+
