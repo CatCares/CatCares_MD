@@ -28,4 +28,11 @@
 * [Navigation Component](https://developer.android.com/guide/navigation/navigation-getting-started?hl=id)
 * [Google Maps Platform](https://developers.google.com/maps/documentation)
 
-#### adadada
+### Features
+
+1. Ringworm Detection : this features allows you to predict ringworm disease of cat by uploading image of your cat 
+2. Article Feature : this feature can allow you to read current articles about cats
+3. Doctor List : this feature serves to display a list of veterinarians, especially those who can treat feline animals
+4. (FUTURE) Check Up Cat
+5. (FUTURE) Displays the location of nearby veterinarians
+6. (FUTURE) Consultation about cat animals with a vetenarian
